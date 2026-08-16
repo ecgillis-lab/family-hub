@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+:root {
+  --paper: #f4ede3;
+  --paper-2: #ebe2d4;
+  --card: #fffbf5;
+  --ink: #2a241c;
+  --muted: #6b5e4e;
+  --line: #ddd2c2;
+  --terracotta: #c45c26;
+  --terracotta-dark: #a3481b;
+  --sage: #4f6f5c;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-2: var(--paper-2);
+  --color-card: var(--card);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-terracotta: var(--terracotta);
+  --color-terracotta-dark: var(--terracotta-dark);
+  --color-sage: var(--sage);
+  --font-sans: var(--font-nunito);
+  --font-display: var(--font-fraunces);
+}
+
+html,
+body {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+body {
+  font-family: var(--font-nunito), ui-sans-serif, system-ui, sans-serif;
+}
+
+h1,
+h2,
+.font-display {
+  font-family: var(--font-fraunces), ui-serif, Georgia, serif;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 3rem;
+  border-radius: 1rem;
+  padding: 0 1.15rem;
+  font-weight: 700;
+  transition: transform 0.12s ease, background 0.12s ease;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-primary {
+  background: var(--terracotta);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--terracotta-dark);
+}
+
+.btn-secondary {
+  background: var(--paper-2);
+  color: var(--ink);
+}
+
+.field {
+  width: 100%;
+  min-height: 3rem;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: var(--card);
+  padding: 0.7rem 0.95rem;
+  color: var(--ink);
+  outline: none;
+}
+
+.field:focus {
+  border-color: var(--terracotta);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--terracotta) 20%, transparent);
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 1.25rem;
+  box-shadow: 0 1px 0 rgba(42, 36, 28, 0.04);
+}
