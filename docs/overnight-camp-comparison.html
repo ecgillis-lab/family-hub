@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>First Overnight Camp Comparison — Summer 2027</title>
+  <style>
+    :root {
+      --ink: #1c1917;
+      --muted: #57534e;
+      --line: #e7e5e4;
+      --paper: #fafaf9;
+      --card: #ffffff;
+      --strong: #166534;
+      --strong-bg: #dcfce7;
+      --solid: #1d4ed8;
+      --solid-bg: #dbeafe;
+      --stretch: #b45309;
+      --stretch-bg: #ffedd5;
+      --pro: #14532d;
+      --con: #9a3412;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font: 16px/1.5 "Segoe UI", Calibri, system-ui, sans-serif;
+    }
+    .wrap { max-width: 920px; margin: 0 auto; padding: 32px 24px 64px; }
+    h1 { font-size: 28px; line-height: 1.2; margin: 0 0 8px; }
+    h2 { font-size: 20px; margin: 36px 0 12px; }
+    h3 { font-size: 17px; margin: 0 0 6px; }
+    p { margin: 0 0 12px; }
+    .lede { color: var(--muted); font-size: 15px; }
+    .how {
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      padding: 12px 14px;
+      border-radius: 8px;
+      font-size: 14px;
+      margin: 16px 0 24px;
+    }
+    .note {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      padding: 12px 14px;
+      border-radius: 8px;
+      font-size: 14px;
+      margin: 0 0 16px;
+    }
+    .warn {
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      padding: 12px 14px;
+      border-radius: 8px;
+      font-size: 14px;
+      margin: 0 0 16px;
+    }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 16px 18px;
+    }
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 20px 0; }
+    .stat {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 12px;
+      text-align: center;
+    }
+    .stat b { display: block; font-size: 22px; }
+    .stat span { color: var(--muted); font-size: 12px; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; background: var(--card); }
+    th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    th { font-size: 12px; text-transform: uppercase; letter-spacing: 0.03em; color: var(--muted); }
+    tr.strong { box-shadow: inset 4px 0 0 #22c55e; }
+    tr.solid { box-shadow: inset 4px 0 0 #3b82f6; }
+    tr.stretch { box-shadow: inset 4px 0 0 #f59e0b; }
+    a { color: #1d4ed8; }
+    .badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+    .badge.strong { background: var(--strong-bg); color: var(--strong); }
+    .badge.solid { background: var(--solid-bg); color: var(--solid); }
+    .badge.stretch { background: var(--stretch-bg); color: var(--stretch); }
+    .camp {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin: 0 0 14px;
+      break-inside: avoid;
+    }
+    .meta { color: var(--muted); font-size: 13px; margin-bottom: 8px; }
+    .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 10px; }
+    .cols ul { margin: 6px 0 0; padding-left: 18px; }
+    .cols h4 { margin: 0; font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em; }
+    .cols .pros h4 { color: var(--pro); }
+    .cols .cons h4 { color: var(--con); }
+    li { margin: 0 0 6px; }
+    footer { margin-top: 40px; color: var(--muted); font-size: 12px; }
+    @media (max-width: 720px) {
+      .grid-2, .cols, .stats { grid-template-columns: 1fr; }
+      table { font-size: 12px; }
+    }
+    @media print {
+      body { background: white; }
+      .how { display: none; }
+      .wrap { padding: 0; max-width: none; }
+      .camp, .card { break-inside: avoid; }
+      a { color: inherit; text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="how">
+      <strong>How to share this:</strong> attach this file to an email, or open it in a browser
+      (double-click) and press Ctrl+P → “Save as PDF,” then text or email the PDF.
+    </p>
+
+    <h1>First overnight camp comparison</h1>
+    <p class="lede">
+      For our daughter, summer 2027. She will be about 8.5, and this will be her first overnight camp.
+      We are assuming she is completing 2nd or 3rd grade. The ranking weights shorter first stays,
+      more structure for younger girls, and a camp size that will not swallow her.
+    </p>
+
+    <div class="warn">
+      <strong>Two notes up front.</strong> Aloha (Fairlee, VT) is for 7th–10th graders — too old this year;
+      Hive is the age-right camp in that family. Windridge is a coed tennis/soccer camp, not an all-girls
+      lake camp. A flycraft.com link was on the original list; that is a finance company, not a camp.
+    </div>
+
+    <div class="stats">
+      <div class="stat"><b>15</b><span>camps compared</span></div>
+      <div class="stat"><b>12</b><span>with a 10-day or 2-week on-ramp</span></div>
+      <div class="stat"><b>7</b><span>strong first-timer fits</span></div>
+      <div class="stat"><b>115–400</b><span>approx. campers per session</span></div>
+    </div>
+
+    <h2>Start here</h2>
+    <div class="grid-2">
+      <div class="card">
+        <h3>Strongest first-overnight fits</h3>
+        <p class="lede">Real short on-ramps aimed at her age.</p>
+        <ul>
+          <li><strong>Wavus Junior</strong> — 10 days, 2nd–4th grade, cabin of her peers, one island overnight.</li>
+          <li><strong>Wicosuta Explorers</strong> — purpose-built first-timer cabin, then a path to 3.5 weeks.</li>
+          <li><strong>Fernwood Cove Rookie</strong> — 2 weeks for girls completing 1st–3rd; she chooses, camp assigns.</li>
+          <li><strong>Merriwood 2-week</strong> — small, structured, only for current 2nd and 3rd graders.</li>
+          <li><strong>Songadeewin 2-week</strong> — if we are comfortable with a 4-day wilderness trip.</li>
+          <li><strong>Hive intro</strong> — Aloha Foundation’s younger camp, only if she is finishing 3rd or 4th.</li>
+          <li><strong>Wa-Klo 2-week</strong> — small uniform camp, but only in session 2.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Harder as the first goodbye</h3>
+        <p class="lede">Good camps. They ask more because of length, choice, scale, or age.</p>
+        <ul>
+          <li><strong>Aloha</strong> — teen camp; she is not eligible. Use Hive instead.</li>
+          <li><strong>Alford Lake / Lochearn</strong> — 3.5 weeks only; she is at the age floor at Alford Lake.</li>
+          <li><strong>Danbee</strong> — structured at her grade, but about 400 campers.</li>
+          <li><strong>Kippewa / Runoia</strong> — warm and personalized, but elective-heavy.</li>
+          <li><strong>Tapawingo</strong> — best of the “full session” group if she can do 3 structured weeks.</li>
+          <li><strong>Windridge Rookie</strong> — excellent 10-day first-timer design, but coed sports.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>Snapshot</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Camp</th>
+          <th>Place</th>
+          <th>Size</th>
+          <th>Shortest stay</th>
+          <th>Day at 8.5</th>
+          <th>Fit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="strong"><td><a href="https://fernwoodcove.com">Fernwood Cove</a></td><td>Harrison, ME</td><td>~200</td><td>2 weeks</td><td>Chooses 10 activities; assigned 6</td><td><span class="badge strong">Strong</span></td></tr>
+        <tr class="solid"><td><a href="https://kippewa.com">Kippewa</a></td><td>Monmouth, ME</td><td>~180</td><td>2 weeks (Point)</td><td>1 required + 4 weekly electives</td><td><span class="badge solid">Solid</span></td></tr>
+        <tr class="solid"><td><a href="https://runoia.com">Runoia</a></td><td>Belgrade Lakes, ME</td><td>~150</td><td>2 weeks</td><td>Fully elective, 5 periods</td><td><span class="badge solid">Solid</span></td></tr>
+        <tr class="solid"><td><a href="https://camptapawingo.com">Tapawingo</a></td><td>Sweden, ME</td><td>~130 / 115</td><td>3 weeks</td><td>5 assigned + 1 free; rotates every 2 weeks</td><td><span class="badge solid">Solid</span></td></tr>
+        <tr class="stretch"><td><a href="https://campdanbee.com">Danbee</a></td><td>Hinsdale, MA</td><td>~400</td><td>3 weeks</td><td>Structured try-everything in 1st–5th</td><td><span class="badge stretch">Harder</span></td></tr>
+        <tr class="strong"><td><a href="https://merriwood.com/">Merriwood</a></td><td>Orford, NH</td><td>~135</td><td>2 weeks</td><td>Mostly structured, a few electives</td><td><span class="badge strong">Strong</span></td></tr>
+        <tr class="strong"><td><a href="https://campwaklo.com">Wa-Klo</a></td><td>Dublin, NH</td><td>~130</td><td>2 weeks</td><td>4 weekly choices + required swim</td><td><span class="badge strong">Strong</span></td></tr>
+        <tr class="strong"><td><a href="https://campwicosuta.com">Wicosuta</a></td><td>Bristol, NH</td><td>~275</td><td>2 weeks</td><td>More structured in Lower Camp</td><td><span class="badge strong">Strong</span></td></tr>
+        <tr class="stretch"><td><a href="https://camplochearn.com">Lochearn</a></td><td>Post Mills, VT</td><td>~180</td><td>3.5 weeks</td><td>2nd–4th: required tennis and swim</td><td><span class="badge stretch">Harder</span></td></tr>
+        <tr class="strong"><td><a href="https://keewaydin.org/songadeewin/">Songadeewin</a></td><td>Salisbury, VT</td><td>~130</td><td>2 weeks</td><td>Daily choice + required wilderness trip</td><td><span class="badge strong">Strong</span></td></tr>
+        <tr class="strong"><td><a href="https://www.kwe.org/wavus/">Wavus</a></td><td>Jefferson, ME</td><td>~250</td><td>10 days</td><td>Mornings assigned; afternoons chosen</td><td><span class="badge strong">Strong</span></td></tr>
+        <tr class="stretch"><td><a href="https://alohafoundation.org/aloha/">Aloha</a></td><td>Fairlee, VT</td><td>~140</td><td>2 weeks</td><td>Teen camp — not age-eligible</td><td><span class="badge stretch">Harder</span></td></tr>
+        <tr class="strong"><td><a href="https://alohafoundation.org/hive/">Hive</a></td><td>Fairlee, VT</td><td>~120</td><td>2 weeks</td><td>Choice-based; intro for 3rd–4th grads</td><td><span class="badge strong">Strong</span></td></tr>
+        <tr class="stretch"><td><a href="https://www.alfordlakecamp.com/">Alford Lake</a></td><td>Hope, ME</td><td>~180</td><td>3.5 weeks</td><td>Choice-based; 8 is the youngest age</td><td><span class="badge stretch">Harder</span></td></tr>
+        <tr class="solid"><td><a href="https://windridgecamps.com">Windridge</a></td><td>Roxbury, VT</td><td>~200 coed</td><td>10 days</td><td>Tennis or soccer major + electives</td><td><span class="badge solid">Solid</span></td></tr>
+      </tbody>
+    </table>
+
+    <h2>Pro and con by camp</h2>
+
+    <article class="camp">
+      <h3>Fernwood Cove <span class="badge strong">Strong first-timer fit</span></h3>
+      <p class="meta">Harrison, ME · ~200 campers · 2-week Rookie for girls completing 1st–3rd · <a href="https://fernwoodcove.com">fernwoodcove.com</a></p>
+      <p><strong>Best for:</strong> A true first overnight with choice, but not total self-scheduling.</p>
+      <div class="cols">
+        <div class="pros"><h4>Pros</h4><ul>
+          <li>Dedicated 2-week Rookie session matches a first overnight at 8.5</li>
+          <li>She picks interests, then camp assigns the schedule</li>
+          <li>Rotating choices so she can sample a wide range in a short stay</li>
+          <li>Buses from Boston suburbs, Logan, and Portland</li>
+          <li>Manageable mid-size (~200) rather than a mega-camp</li>
+        </ul></div>
+        <div class="cons"><h4>Cons</h4><ul>
+          <li>Rookie is a shorter, separate on-ramp — she may not get the full 3.5-week culture</li>
+          <li>If we skip Rookie, 3.5 weeks is a long first stay</li>
+          <li>Still requires her to name 10 activity choices</li>
+          <li>Maine travel is farther than NH/MA for most Northeast families</li>
+        </ul></div>
+      </div>
+    </article>
+
+    <article class="camp">
+      <h3>Kippewa <span class="badge solid">Solid if she is ready</span></h3>
+      <p class="meta">Monmouth, ME · ~180 campers · 3.5 weeks (Point is a separate 2-week camp) · <a href="https://kippewa.com">kippewa.com</a></p>
+      <p><strong>Best for:</strong> A girl who already likes choosing her own day, or as a Point-then-Kippewa path.</p>
+      <div class="cols">
+        <div class="pros"><h4>Pros</h4><ul>
+          <li>One required period every day keeps swim or sports in the mix</li>
+          <li>Kippewa Point is a 2-week hybrid of structure and choice on the same campus</li>
+          <li>Mid-size (~180) and a long-running Maine girls-camp culture</li>
+          <li>Brother camp Cobbossee if a sibling might want camp later</li>
+          <li>Strong arts, riding, and waterfront reputation</li>
+        </ul></div>
+        <div class="cons"><h4>Cons</h4><ul>
+          <li>Main camp is 3.5 weeks with no dedicated first-timer cabin</li>
+          <li>Four weekly electives is a lot of ownership for a first overnight at 8.5</li>
+          <li>Point friends may not automatically carry into the 3.5-week community</li>
+          <li>Maine distance and a choice-heavy culture can stack for a nervous first-timer</li>
+        </ul></div>
+      </div>
+    </article>
+
+    <article class="camp">
+      <h3>Runoia <span class="badge solid">Solid if she is ready</span></h3>
+      <p class="meta">Belgrade Lakes, ME · ~150 campers · 3.5-week, 7-week, plus a shorter program · <a href="https://runoia.com">runoia.com</a></p>
+      <p><strong>Best for:</strong> A small, warm camp if she is independent and we can use the shorter stay.</p>
+      <div class="cols">
+        <div class="pros"><h4>Pros</h4><ul>
+          <li>Small (~150) with about 80 adults — she is likely to be known by name</li>
+          <li>Directors are described as involved in daily camp life</li>
+          <li>Ages 6–16, so 8.5 is not the youngest possible camper</li>
+          <li>A shorter program is available if 3.5 weeks feels like too much</li>
+          <li>Classic Maine lake program: riding, sailing, trips, and free time with friends</li>
+        </ul></div>
+        <div class="cons"><h4>Cons</h4><ul>
+          <li>Entirely elective is a lot of ownership for a first overnight</li>
+          <li>An 8.5-year-old first-timer may freeze or pick only comfort activities</li>
+          <li>Default 3.5-week session is still a long first goodbye</li>
+          <li>Smaller enrollment can mean fewer bunkmates in her exact age band</li>
+        </ul></div>
+      </div>
+    </article>
+
+    <article class="camp">
+      <h3>Tapawingo <span class="badge solid">Solid if she is ready</span></h3>
+      <p class="meta">Sweden, ME · ~130 / ~115 campers · 3, 4, and 7 weeks · uniform · <a href="https://camptapawingo.com">camptapawingo.com</a></p>
+      <p><strong>Best for:</strong> A traditional, small camp if she can handle 3 weeks with lots of structure.</p>
+      <div class="cols">
+        <div class="pros"><h4>Pros</h4><ul>
+          <li>Smallest Maine option (~115–130) — easier to feel known</li>
+          <li>Younger schedule is assigned, which is often the right first-overnight design</li>
+          <li>3-week session is shorter than the 3.5-week Maine half-seasons</li>
+          <li>Uniforms reduce packing stress and clothing comparison</li>
+          <li>Choice increases as she gets older, so the camp can grow with her</li>
+        </ul></div>
+        <div class="cons"><h4>Cons</h4><ul>
+          <li>No dedicated 2-week first-timer program — 3 weeks is still a leap</li>
+          <li>Uniform/tradition culture can feel intense if that is not our style</li>
+          <li>Less personal choice at 8.5</li>
+          <li>Two sessions are different sizes, so the community feel can shift by half</li>
+        </ul></div>
+      </div>
+    </article>
+
+    <article class="camp">
+      <h3>Danbee <span class="badge stretch">Harder first stay</span></h3>
+      <p class="meta">Hinsdale, MA · ~400 campers · 4 / 3 / 7 weeks · uniform through 5th · <a href="https://campdanbee.com">campdanbee.com</a></p>
+      <p><strong>Best for:</strong> A high-energy girl who likes a big community and is okay with scale.</p>
+      <div class="cols">
+        <div class="pros"><h4>Pros</h4><ul>
+          <li>At her grade, the day is structured — she tries everything without building a schedule</li>
+          <li>Session 2 is 3 weeks, a shorter full-camp stay than 3.5</li>
+          <li>Massachusetts location is usually the easiest travel on this list</li>
+          <li>Uniforms through 5th grade simplify packing</li>
+          <li>Brother camps (Winadu, Mah Kee Nac) if a sibling might go later</li>
+        </ul></div>
+        <div class="cons"><h4>Cons</h4><ul>
+          <li>~400 campers is two to three times most others</li>
+          <li>No 2-week first-timer program</li>
+          <li>Session 1 is 4 weeks, which is long if that is the only opening</li>
+          <li>Bigger, more programmed energy than the small Maine/NH lakeside camps</li>
+        </ul></div>
+      </div>
+    </article>
+
+    <article class="camp">
+      <h3>Merriwood <span class="badge strong">Strong first-timer fit</span></h3>
+      <p class="meta">Orford, NH · ~135 campers · 3, 4, 7 weeks + 2-week for current 2nd and 3rd graders · <a href="https://merriwood.com/">merriwood.com</a></p>
+      <p><strong>Best for:</strong> A gentle, small first stay if she is in 2nd or 3rd grade next summer.</p>
+      <div class="cols">
+        <div class="pros"><h4>Pros</h4><ul>
+          <li>2-week session is aimed exactly at 2nd and 3rd graders</li>
+          <li>Small (~135) and tradition-heavy</li>
+          <li>Guided days with a little choice</li>
+          <li>3-week option exists if she is ready for more than 2 weeks but not 3.5</li>
+          <li>Age range starts at 8, so programming is built around younger girls</li>
+        </ul></div>
+        <div class="cons"><h4>Cons</h4><ul>
+          <li>2-week eligibility is narrow — confirm she is a current 2nd or 3rd grader</li>
+          <li>At 8.5 she may be among the youngest in camp</li>
+          <li>Fewer campers means fewer age-peers if her cabin group is small</li>
+          <li>More structured than some girls want in later summers</li>
+        </ul></div>
+      </div>
+    </article>
+
+    <article class="camp">
+      <h3>Wa-Klo <span class="badge strong">Strong first-timer fit</span></h3>
+      <p class="meta">Dublin, NH · ~130 campers · 3, 4, 7 weeks + 2-week in session 2 only · uniform · <a href="https://campwaklo.com">campwaklo.com</a></p>
+      <p><strong>Best for:</strong> A small uniform camp if we can do a late-summer 2-week, or she likes choosing.</p>
+      <div class="cols">
+        <div class="pros"><h4>Pros</h4><ul>
+          <li>Small (~130) and they treat juniors as mostly first-time campers</li>
+          <li>2-week option exists for 1st–6th grade</li>
+          <li>Required swim period is a daily anchor</li>
+          <li>Weekly re-selection lets her abandon a miss and try again</li>
+          <li>Uniforms simplify packing; 3-week option if 2 weeks is not available</li>
+        </ul></div>
+        <div class="cons"><h4>Cons</h4><ul>
+          <li>2-week is second session only — late summer</li>
+          <li>Otherwise fully elective, which is a lot of weekly deciding at 8.5</li>
+          <li>Uniform culture is a plus or a minus depending on our family</li>
+          <li>Small size means fewer bunk options if the social mix is not a fit</li>
+        </ul></div>
+      </div>
+    </article>
+
+    <article class="camp">
+      <h3>Wicosuta <span class="badge strong">Strong first-timer fit</span></h3>
+      <p class="meta">Bristol, NH · ~275 campers · two 3.5-week sessions + 2-week Explorers · uniform in Lower Camp · <a href="https://campwicosuta.com">campwicosuta.com</a></p>
+      <p><strong>Best for:</strong> The most purpose-built first-timer on-ramp, then a path to a full 3.5-week session.</p>
+      <div class="cols">
+        <div class="pros"><h4>Pros</h4><ul>
+          <li>Explorers is designed for first-timers, not just a shortened regular session</li>
+          <li>One small cabin of 6–8 girls per younger age group and a 3:1 ratio</li>
+          <li>Sampling days, special events, and a field trip</li>
+          <li>Parents can pick up on the last day and see camp; buses from Boston included</li>
+          <li>Clear next step: return for a full 3.5-week session once she has the hang of it</li>
+        </ul></div>
+        <div class="cons"><h4>Cons</h4><ul>
+          <li>Full camp is ~275 — bigger and busier than the Maine boutiques</li>
+          <li>Explorers is a taste of Wico, not the whole community</li>
+          <li>Skipping Explorers means a 3.5-week first stay</li>
+          <li>Uniform and optional extras (riding, golf, private lessons) add cost</li>
+        </ul></div>
+      </div>
+    </article>
+
+    <article class="camp">
+      <h3>Lochearn <span class="badge stretch">Harder first stay</span></h3>
+      <p class="meta">Post Mills, VT · ~180 campers · two 3.5-week sessions only · <a href="https://camplochearn.com">camplochearn.com</a></p>
+      <p><strong>Best for:</strong> A skill-building lake camp if she is clearly ready for 3.5 weeks.</p>
+      <div class="cols">
+        <div class="pros"><h4>Pros</h4><ul>
+          <li>At 2nd–4th grade, tennis and swim are required</li>
+          <li>A/B day rotation keeps the week varied</li>
+          <li>Mid-size (~180) Vermont lakeside setting</li>
+          <li>Independence increases as she gets older</li>
+          <li>Less fashion/packing complexity than uniform camps</li>
+        </ul></div>
+        <div class="cons"><h4>Cons</h4><ul>
+          <li>No shorter on-ramp — 3.5 weeks is the only stay</li>
+          <li>Required tennis is a poor fit if she does not want court sports</li>
+          <li>Less session flexibility if we have July/August family plans</li>
+          <li>Vermont travel is another logistics layer versus NH or MA</li>
+        </ul></div>
+      </div>
+    </article>
+
+    <article class="camp">
+      <h3>Songadeewin <span class="badge strong">Strong first-timer fit</span></h3>
+      <p class="meta">Salisbury, VT · ~130 campers · limited 2-week, 4 weeks, or 8 weeks · <a href="https://keewaydin.org/songadeewin/">keewaydin.org/songadeewin</a></p>
+      <p><strong>Best for:</strong> An outdoorsy girl who can handle a short wilderness trip as part of a first stay.</p>
+      <div class="cols">
+        <div class="pros"><h4>Pros</h4><ul>
+          <li>2-week intro exists specifically for new campers completing 2nd–4th grade</li>
+          <li>Small, rustic Vermont camp with a 1:3 staff-to-camper ratio</li>
+          <li>Wabasso grove is 8–10 year olds living in cabins of eight with two counselors</li>
+          <li>Brother camp Keewaydin Dunmore is on the same lake</li>
+          <li>Financial aid is a real part of the Keewaydin Foundation model</li>
+        </ul></div>
+        <div class="cons"><h4>Cons</h4><ul>
+          <li>Even the youngest grove goes on a 4-day overnight hike or canoe trip</li>
+          <li>That second overnight, away from the main camp, is a big extra leap</li>
+          <li>2-week spots are limited; the camp prefers 4- and 8-week stays</li>
+          <li>Daily activity choice plus rustic living is more independence than a structured first-timer cabin</li>
+        </ul></div>
+      </div>
+    </article>
+
+    <article class="camp">
+      <h3>Wavus <span class="badge strong">Strong first-timer fit</span></h3>
+      <p class="meta">Jefferson, ME · ~250 campers · two 26-day sessions + 10-day Junior · <a href="https://www.kwe.org/wavus/">kwe.org/wavus</a></p>
+      <p><strong>Best for:</strong> A short, supported first taste of a wilderness-and-lake Maine camp.</p>
+      <div class="cols">
+        <div class="pros"><h4>Pros</h4><ul>
+          <li>Junior Wavus is 10 days, purpose-built for 2nd–4th graders living away from home for the first time</li>
+          <li>Juniors share a modern cabin with about a dozen girls her age</li>
+          <li>Mornings are assigned by cabin; afternoons add choice</li>
+          <li>Wilderness taste is one overnight on Hog Island — not a 4-day backcountry trip</li>
+          <li>Brother camp Kieve; 2026 Junior tuition is $4,650</li>
+        </ul></div>
+        <div class="cons"><h4>Cons</h4><ul>
+          <li>Full 26-day session is still long if we skip Junior</li>
+          <li>About 561 girls moved through Wavus in 2024 — busier than the 130-camper boutiques</li>
+          <li>Junior runs during the full session, so she is a visitor in a camp that already has its rhythm</li>
+          <li>The culture is grit, wilderness, and character — less “activity menu”</li>
+        </ul></div>
+      </div>
+    </article>
+
+    <article class="camp">
+      <h3>Aloha <span class="badge stretch">Harder first stay — wrong age</span></h3>
+      <p class="meta">Fairlee, VT · ~140 campers · 7th–10th grade graduates · <a href="https://alohafoundation.org/aloha/">alohafoundation.org/aloha</a></p>
+      <p><strong>Best for:</strong> Not this summer — this is the teen camp in the Aloha family. Look at Hive instead.</p>
+      <div class="cols">
+        <div class="pros"><h4>Pros</h4><ul>
+          <li>Beautiful Lake Morey setting with a century of tripping, arts, and rustic tent life</li>
+          <li>2-week intro exists — but only for current 7th–9th graders</li>
+          <li>Sister camps Hive (younger girls) and Lanakila (boys)</li>
+          <li>Strong outdoor skills culture</li>
+        </ul></div>
+        <div class="cons"><h4>Cons</h4><ul>
+          <li>Aloha itself is for 7th–10th grade graduates — she is about five years too young</li>
+          <li>Do not tour Aloha as her first overnight</li>
+          <li>Choice-based teen culture would be a mismatch even if age were waived</li>
+          <li>Platform-tent living is more rustic than most first-timer cabins</li>
+        </ul></div>
+      </div>
+    </article>
+
+    <article class="camp">
+      <h3>Hive <span class="badge strong">Strong first-timer fit</span></h3>
+      <p class="meta">Fairlee, VT · ~120 campers · 2-week intro for 3rd–4th grade graduates · <a href="https://alohafoundation.org/hive/">alohafoundation.org/hive</a></p>
+      <p><strong>Best for:</strong> The age-right Aloha Foundation camp — if she is finishing 3rd or 4th grade.</p>
+      <div class="cols">
+        <div class="pros"><h4>Pros</h4><ul>
+          <li>This is the Aloha Foundation camp for 3rd–6th grade graduates, not the teen campus</li>
+          <li>Two 2-week intro sessions exist for 3rd and 4th grade graduates</li>
+          <li>Small (~120) and playful: farm, gymnastics, sailing, kitchen, woods</li>
+          <li>3-week sessions if she is ready for more than an intro</li>
+          <li>She can later move to Aloha as a teen without leaving the foundation</li>
+        </ul></div>
+        <div class="cons"><h4>Cons</h4><ul>
+          <li>Intro sessions are only for 3rd and 4th grade graduates — too old if she is finishing 2nd</li>
+          <li>Days are choice-based, which is more ownership than a structured first-timer cabin</li>
+          <li>Tent/cabin living is rustic compared with modern bunks</li>
+          <li>Confirm 2027 grade rules before holding a deposit</li>
+        </ul></div>
+      </div>
+    </article>
+
+    <article class="camp">
+      <h3>Alford Lake <span class="badge stretch">Harder first stay</span></h3>
+      <p class="meta">Hope, ME · ~180 campers · 3.5-week or 7-week · required camp clothing · <a href="https://www.alfordlakecamp.com/">alfordlakecamp.com</a></p>
+      <p><strong>Best for:</strong> A traditional Maine girls camp if she is ready for 3.5 weeks at the age floor.</p>
+      <div class="cols">
+        <div class="pros"><h4>Pros</h4><ul>
+          <li>One of the oldest girls’ camps in the world — 120th summer in 2026</li>
+          <li>Ages 8–17, so 8.5 is allowed, just the youngest in camp</li>
+          <li>Tuition includes activities, trips, riding, laundry, and camper supplies</li>
+          <li>3.5-week half session exists; some girls stay half-season their whole career</li>
+          <li>Required camp clothing simplifies packing</li>
+        </ul></div>
+        <div class="cons"><h4>Cons</h4><ul>
+          <li>No 2-week or 10-day first-timer program — 3.5 weeks is the leap</li>
+          <li>Choice-based days ask an 8.5-year-old first-timer to design her summer</li>
+          <li>She will be at the bottom of an 8–17 age range</li>
+          <li>Half-season tuition was $10,700 in 2026, plus required camp clothing and travel</li>
+        </ul></div>
+      </div>
+    </article>
+
+    <article class="camp">
+      <h3>Windridge <span class="badge solid">Solid if she is ready</span></h3>
+      <p class="meta">Roxbury, VT · ~200 coed · 17-day sessions + 10-day Rookie for ages 7–10 · <a href="https://windridgecamps.com">windridgecamps.com</a></p>
+      <p><strong>Best for:</strong> A sports-loving first-timer if we are open to a coed camp, not a traditional girls lake camp.</p>
+      <div class="cols">
+        <div class="pros"><h4>Pros</h4><ul>
+          <li>Rookie sessions are 10 days, ages 7–10, first-timers only</li>
+          <li>Girls rookies live together in Cubby, an 8-camper cabin with an in-cabin bathroom</li>
+          <li>Each rookie gets an older-camper big sister; they can extend into the 17-day session</li>
+          <li>Shorter and cheaper than most Maine half-seasons (about $3,400 for Rookie in 2026)</li>
+          <li>Buses from Boston; three session start dates</li>
+        </ul></div>
+        <div class="cons"><h4>Cons</h4><ul>
+          <li>This is a coed tennis/soccer/riding camp, not an all-girls traditional lake camp</li>
+          <li>Rookies major in tennis or soccer — not horseback or golf</li>
+          <li>If we want girls-only culture and cabin-sisterhood as the product, this is a different summer</li>
+          <li>Rookie closing day requires pickup at camp; no bus home on the short session</li>
+        </ul></div>
+      </div>
+    </article>
+
+    <h2>A practical shortlist</h2>
+    <p>
+      If the only question is whether night one will go okay, visit
+      <strong>Wavus Junior</strong>, <strong>Wicosuta Explorers</strong>,
+      <strong>Fernwood Cove Rookie</strong>, and <strong>Merriwood</strong>
+      (if she is in 2nd or 3rd grade). Those combine a short stay with programming
+      that does not ask an 8.5-year-old to run her own summer.
+    </p>
+    <p>
+      Add <strong>Songadeewin</strong> if we are comfortable with a 4-day wilderness trip,
+      and <strong>Hive</strong> only if she is finishing 3rd or 4th grade.
+      Add <strong>Windridge Rookie</strong> only if we want a coed sports camp rather than
+      an all-girls lake summer.
+    </p>
+    <p>
+      <strong>Alford Lake</strong> is a beautiful traditional Maine camp, but 3.5 weeks at the
+      age floor is a hard first overnight. <strong>Aloha</strong> is the wrong campus for this year.
+    </p>
+    <p class="lede">
+      Confirm 2027 dates, her exact grade, and whether Junior / Rookie / Explorers / intro
+      sessions still exist before holding a deposit. Enrollment numbers are approximate.
+    </p>
+
+    <footer>
+      Family camp comparison for summer 2027. Built from camp websites and Summer 365 notes.
+      Not an official ranking — a first-overnight lens for one 8.5-year-old.
+    </footer>
+  </div>
+</body>
+</html>
